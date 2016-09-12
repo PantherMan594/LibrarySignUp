@@ -14,6 +14,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 
@@ -40,7 +41,7 @@ class Scheduler implements EventHandler<ActionEvent> {
     private Map<Long, String> holidays;
     private Map<Integer, Integer> studies;
 
-    Scheduler(TextField email, TextField password, Text title, Button submit, Map<Integer, Integer> studies, Set<ComboBox> comboBoxes) {
+    Scheduler(TextField email, PasswordField password, Text title, Button submit, Map<Integer, Integer> studies, Set<ComboBox> comboBoxes) {
         this.email = email;
         this.password = password;
         this.title = title;

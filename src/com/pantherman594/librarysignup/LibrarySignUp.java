@@ -14,10 +14,7 @@ import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Font;
@@ -103,7 +100,7 @@ public class LibrarySignUp extends Application {
         email.setPrefColumnCount(20);
         grid.add(email, 2, 3);
 
-        TextField password = new TextField();
+        PasswordField password = new PasswordField();
         password.setPromptText("Enter your password.");
         password.setPrefColumnCount(20);
         grid.add(password, 2, 4);
