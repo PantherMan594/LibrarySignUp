@@ -63,6 +63,8 @@ class Scheduler implements EventHandler<ActionEvent> {
         for (ComboBox comboBox : comboBoxes) {
             comboBox.setDisable(true);
         }
+        email.setDisable(true);
+        password.setDisable(true);
 
         submit.setText("Quit");
         submit.setOnAction(ev -> LibrarySignUp.getInstance().exit(0));
