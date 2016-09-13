@@ -73,9 +73,9 @@ class Scheduler implements EventHandler<ActionEvent> {
         new Thread(() -> {
             while (LibrarySignUp.getInstance().shouldRunScheduler()) {
                 Calendar date = Calendar.getInstance();
-                //date.add(Calendar.DAY_OF_MONTH, 1);
-                date.set(Calendar.HOUR_OF_DAY, 21);
-                date.set(Calendar.MINUTE, 2);
+                date.add(Calendar.DAY_OF_MONTH, 1);
+                date.set(Calendar.HOUR_OF_DAY, 18);
+                date.set(Calendar.MINUTE, 59);
                 date.set(Calendar.SECOND, 45);
                 date.set(Calendar.MILLISECOND, 0);
 
