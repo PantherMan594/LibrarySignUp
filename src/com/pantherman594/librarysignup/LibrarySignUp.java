@@ -15,6 +15,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Font;
@@ -47,9 +48,9 @@ public class LibrarySignUp extends Application {
 
     @SuppressWarnings("unchecked")
     @Override
-    public void start(Stage primaryStage) throws Exception {
+    public void start(Stage pS) throws Exception {
         instance = this;
-        this.primaryStage = primaryStage;
+        this.primaryStage = pS;
 
         Map<Integer, Integer> studies = new HashMap<>();
         Set<ComboBox> comboBoxes = new HashSet<>();
@@ -117,6 +118,7 @@ public class LibrarySignUp extends Application {
 
         primaryStage.setTitle("Library Sign Up");
         primaryStage.setScene(scene);
+        primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/icon.png")));
         primaryStage.show();
 
         scene.getWindow().setOnCloseRequest(event -> exit(0));
@@ -124,6 +126,10 @@ public class LibrarySignUp extends Application {
 
     boolean shouldRunScheduler() {
         return runScheduler;
+    }
+
+    void hide() {
+        primaryStage.setIconified(true);
     }
 
     void exit(int status) {

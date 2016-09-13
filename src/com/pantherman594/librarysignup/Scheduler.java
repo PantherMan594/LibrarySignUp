@@ -60,6 +60,7 @@ class Scheduler implements EventHandler<ActionEvent> {
             return;
         }
         title.setText("\tLibrary Sign Up is running... (minimize this)");
+        LibrarySignUp.getInstance().hide();
         for (ComboBox comboBox : comboBoxes) {
             comboBox.setDisable(true);
         }
@@ -72,15 +73,19 @@ class Scheduler implements EventHandler<ActionEvent> {
         new Thread(() -> {
             while (LibrarySignUp.getInstance().shouldRunScheduler()) {
                 Calendar date = Calendar.getInstance();
-                date.add(Calendar.DAY_OF_MONTH, 1);
-                date.set(Calendar.HOUR_OF_DAY, 18);
-                date.set(Calendar.MINUTE, 59);
+                //date.add(Calendar.DAY_OF_MONTH, 1);
+                date.set(Calendar.HOUR_OF_DAY, 21);
+                date.set(Calendar.MINUTE, 2);
                 date.set(Calendar.SECOND, 45);
                 date.set(Calendar.MILLISECOND, 0);
 
-                try {
-                    Thread.sleep(date.getTimeInMillis() - System.currentTimeMillis());
-                } catch (InterruptedException ignored) {}
+                final long endTime = date.getTimeInMillis();
+                while (System.currentTimeMillis() < endTime) {
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException ignored) {
+                    }
+                }
 
                 long tomorrow = LocalDate.now().toEpochDay() + 1;
                 int sixDay = getSixDay(getSchoolDays(tomorrow));
@@ -167,7 +172,7 @@ class Scheduler implements EventHandler<ActionEvent> {
 
     private int getSchoolDays(long date) {
         int schoolDays = 1;
-        for (long i = 17052; i < date; i++) {
+        for (long i = LocalDate.of(2016, 9, 8).toEpochDay(); i < date; i++) {
             if (isSchoolDay(i)) {
                 schoolDays++;
             }
